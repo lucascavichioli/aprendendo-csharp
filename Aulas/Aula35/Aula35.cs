@@ -24,6 +24,15 @@ class Veiculo { // classe base
     public int getRodas(){
         return rodas;
     }
+    public void setRodas(int rodas){
+        this.rodas += rodas;
+
+        if(this.rodas < 0){
+            this.rodas = 0; 
+        }else if( this.rodas > 20){
+            this.rodas = 20;
+        }
+    }
 }
 
 class Carro : Veiculo { //classe derivada
@@ -40,6 +49,17 @@ class Carro : Veiculo { //classe derivada
     }
 }
 
+class CarroCombate : Carro {
+    
+    public int municao;
+    public CarroCombate() : base("Carro de combate", "Verde") {
+        municao = 10;
+        setRodas(6);
+
+    }
+
+}
+
 class Aula35 {
 
     static void Main(){
@@ -54,6 +74,12 @@ class Aula35 {
         Console.WriteLine(c1.velMax);
         Console.WriteLine(c1.getLigado());
 
+        CarroCombate cc1 = new CarroCombate();
+        Console.WriteLine(cc1.nome);
+        Console.WriteLine(cc1.cor);
+        Console.WriteLine(cc1.getRodas());
+        Console.WriteLine(cc1.velMax);
+        Console.WriteLine(cc1.getLigado());
     }
 
 }
